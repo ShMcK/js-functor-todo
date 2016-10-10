@@ -1,8 +1,10 @@
-import Reducer from '../utils/Reducer'
+import { Reducer } from '../functors'
+
+export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
 const appReducer = Reducer((state, action) => {
   switch (action.type) {
-    case 'set_visibility_filter':
+    case SET_VISIBILITY_FILTER:
       return Object.assign({}, state, {
         visibilityFilter: action.filter
       })

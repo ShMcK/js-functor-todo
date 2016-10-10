@@ -1,5 +1,5 @@
 import { withReducer } from 'recompose'
-import Hoc from './utils/Hoc'
+import { Hoc } from './functors'
 import reducers from './reducers'
 
 const initialState = {

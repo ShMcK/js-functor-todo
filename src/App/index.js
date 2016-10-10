@@ -1,5 +1,5 @@
 import React from 'react'
-import Component from '../utils/Component'
+import { Component } from '../functors'
 import Todo from '../Todo'
 
 const Header = Component(s => <h1>Now Viewing {s}</h1>)

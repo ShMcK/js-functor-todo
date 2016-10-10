@@ -1,4 +1,4 @@
-export default = g => ({
+const Reducer = g => ({
   fold: g,
   contramap: f =>
     Reducer((state, action) => g(state, f(action))),
@@ -7,3 +7,5 @@ export default = g => ({
   concat: o =>
     Reducer((state, action) => o.fold(g(state, action), action))
 })
+
+export default Reducer

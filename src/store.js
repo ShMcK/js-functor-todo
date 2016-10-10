@@ -3,7 +3,9 @@ import { Hoc } from './functors'
 import reducers from './reducers'
 
 const initialState = {
-  todos: []
+  todos: [{
+    title: 'First Todo'
+  }]
 }
 
 const store = Hoc(withReducer('state', 'dispatch', reducers.fold, initialState))

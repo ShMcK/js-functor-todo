@@ -11,7 +11,9 @@ const styles = {
 }
 
 const Header = Component(s => 
-  <h1 style={styles}>{s.title}</h1>
+  <header>
+		<h1 style={styles}>{s.title}</h1>
+	</header>
 )
 
 export default Header

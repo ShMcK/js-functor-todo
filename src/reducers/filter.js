@@ -1,13 +1,13 @@
 import { Reducer } from '../functors'
 
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
+export const FILTER_SET = 'FILTER_SET'
 
 export default Reducer((state, action) => {
   switch (action.type) {
 
-    case SET_VISIBILITY_FILTER:
+    case FILTER_SET:
       return Object.assign({}, state, {
-        visibilityFilter: action.filter
+        filter: action.filter
       })
 
     default:

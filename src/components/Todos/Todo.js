@@ -42,11 +42,16 @@ const styles = {
   },
 }
 
-const Todo = ({ todo }) => (
+const Todo = ({ todo, toggleComplete }) => (
   <li style={styles.li}>
     <div>
-      <input style={styles.toggle} type='checkbox' />
-      <label style={styles.label}>{todo.title}</label>
+      <input
+        style={styles.toggle}
+        type='checkbox'
+        checked={todo.isComplete}
+        onChange={toggleComplete}
+      />
+      <label style={Object.assign({}, styles.label, todo.isComplete ? { textDecoration: 'line-through'} : {})}>{todo.title}</label>
       <button style={styles.button}></button>
     </div>
   </li>

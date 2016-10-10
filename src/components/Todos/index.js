@@ -1,7 +1,7 @@
 import React from 'react'
 import { Component, classToFn } from '../../functors'
 import connect from '../../connect'
-import { addTodo, setVisibilityFilter } from '../../actions'
+import { todoAdd, todoToggleComplete, filterSet } from '../../actions'
 import Todo from './Todo'
 import styles from './styles'
 
@@ -14,7 +14,7 @@ const Todos = connect.fold(({ state, dispatch }) => {
       <form onSubmit={e => {
           e.preventDefault()
           if (!input.value.trim()) return
-          dispatch(addTodo(input.value))
+          dispatch(todoAdd(input.value))
           input.value = ''
         }}>
         <input
@@ -26,7 +26,13 @@ const Todos = connect.fold(({ state, dispatch }) => {
       </form>
       <div>
         <ul style={styles.list}>
-          { state.todos.map((todo) => <Todo key={todo.id} todo={todo} />) }
+          { state.todos.map((todo) =>
+            <Todo
+              key={todo.id}
+              todo={todo}
+              toggleComplete={() => dispatch(todoToggleComplete(todo.id))}
+            />
+          )}
         </ul>
       </div>
     </section>

@@ -1,6 +1,12 @@
 import { ADD_TODO } from './reducers/todo'
-import { SET_VISBILITY_FILTER } from './reducers/filter'
+import { SET_VISIBILITY_FILTER } from './reducers/filter'
 
-export const addTodo = ({title}) => ({ type: ADD_TODO, payload: {title } })
+export const addTodo = (title) => ({
+  type: ADD_TODO,
+  payload: { title }
+})
 
-export const setVisibilityFilter = () => ({ type: SET_VISBILITY_FILTER })
+export const setVisibilityFilter = (filter) => ({
+  type: SET_VISIBILITY_FILTER,
+  filter,
+})

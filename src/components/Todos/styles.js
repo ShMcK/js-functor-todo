@@ -1,0 +1,45 @@
+const styles = {
+  list: {
+    margin: '0',
+    marginTop: '20px',
+    padding: '0',
+    listStyle: 'none',
+  },
+    toggleAll: {
+    position: 'absolute',
+	  top: '-55px',
+	  left: '-12px',
+	  width: '60px',
+	  height: '34px',
+	  textAlign: 'center',
+  },
+  newTodo: {
+    position: 'relative',
+    marginTop: '140px',
+    width: '100%',
+    fontSize: '1rem',
+    lineHeight: '1.4rem',
+    boxSizing: 'border-box',
+    padding: '16px',
+	  background: 'rgba(0, 0, 0, 0.003)',
+    border: 'none',
+	  boxShadow: 'inset 0 -2px 1px rgba(0,0,0,0.03)',
+  },
+    body: {
+    background: '#f5f5f5',
+    minWidth: '230px',
+    maxWidth: '550px',
+    margin: '0 auto',
+    color: '#4d4d4d',
+    font: '14px "Helvetica Neue", Helvetica, Arial, sans-serif',
+    fontWeight: '300',
+    lineHeight: '1.4em',
+  },
+   main: {
+    display: 'block',
+    position: 'relative',
+    zIndex: 2,
+    borderTop: '1px solid #e6e6e6',
+  },
+}
+export default styles

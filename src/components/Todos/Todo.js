@@ -1,4 +1,5 @@
 import React from 'react'
+import { Component, classToFn } from '../../functors'
 
 const styles = {
   li: {
@@ -41,11 +42,11 @@ const styles = {
   },
 }
 
-const Todo = ({title}) => (
+const Todo = ({ todo }) => (
   <li style={styles.li}>
     <div>
       <input style={styles.toggle} type='checkbox' />
-      <label style={styles.label}>{title}</label>
+      <label style={styles.label}>{todo.title}</label>
       <button style={styles.button}></button>
     </div>
   </li>

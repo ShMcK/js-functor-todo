@@ -4,7 +4,7 @@ import { ADD_TODO } from './reducer'
 import { SET_VISIBILITY_FILTER } from '../App/reducer'
 import store from '../store'
 
-const Todos = store.fold(({ state, dispatch }) =>
+const TodoList = store.fold(({ state, dispatch }) =>
   <div>
     <span>Filter: {state.visibilityFilter}</span>
     <ul>
@@ -21,4 +21,4 @@ const Todos = store.fold(({ state, dispatch }) =>
   </div>
 )
 
-export default Component(classToFn(Todos))
+export default Component(classToFn(TodoList))

@@ -1,5 +1,5 @@
 import appReducer from './App/reducer'
-import todoReducer from './Todo/reducer'
+import todoReducer from './TodoList/reducer'
 
 const reducers = 
   appReducer

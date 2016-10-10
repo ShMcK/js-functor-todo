@@ -1,5 +1,6 @@
 import React from 'react'
-import { Component } from '../functors'
+import { Component, classToFn } from '../../functors'
+import connect from '../../connect'
 
 const styles = {
   toggleAll: {
@@ -24,7 +25,7 @@ const styles = {
   },
 }
 
-const TodoInput = Component(() =>
+const TodoInput = connect.fold(({ state, dispatch }) =>
   <section style={styles.main}>
     <input className='toggle-all' style={styles.toggleAll} type='checkbox' />
     <label htmlFor='toggle-all' style={{display: 'none'}}>Mark all as complete</label>
@@ -32,4 +33,4 @@ const TodoInput = Component(() =>
   </section>
 )
 
-export default TodoInput
+export default Component(classToFn(TodoInput))

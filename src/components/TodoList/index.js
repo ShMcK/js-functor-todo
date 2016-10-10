@@ -1,9 +1,7 @@
 import React from 'react'
-import { Component, classToFn } from '../functors'
-import { ADD_TODO } from './reducer'
-import { SET_VISIBILITY_FILTER } from '../App/reducer'
-import store from '../store'
-import Todo from '../components/Todo'
+import { Component, classToFn } from '../../functors'
+import connect from '../../connect'
+import Todo from './Todo'
 
 const styles = {
   list: {
@@ -13,7 +11,7 @@ const styles = {
   },
 }
 
-const TodoList = store.fold(({ state, dispatch }) =>
+const TodoList = connect.fold(({ state, dispatch }) =>
   <ul style={styles.list}>
     { state.todos.map((todo, i) => <Todo key={i} title={todo.title} />) }
   </ul>

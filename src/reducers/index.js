@@ -1,8 +1,8 @@
-import appReducer from './App/reducer'
-import todoReducer from './TodoList/reducer'
+import filterReducer from './filter'
+import todoReducer from './todo'
 
 const reducers = 
-  appReducer
+  filterReducer
     .concat(todoReducer)
     .contramap(action => Object.assign({filter: 'all'}, action))
     .map(s => Object.assign({}, s, {lastUpdated: Date()}))

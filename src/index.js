@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom'
-import App from './App/index'
+import initialState from './state'
+import Layout from './components/index'
 
 ReactDOM.render(
-  App,
+  Layout(initialState),
   document.getElementById('root')
 )

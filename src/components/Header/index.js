@@ -1,5 +1,5 @@
 import React from 'react'
-import { Component } from '../functors'
+import { Component } from '../../functors'
 
 const styles = {
   position: 'absolute',

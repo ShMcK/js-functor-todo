@@ -5,6 +5,7 @@ const styles = {
   position: 'absolute',
 	width: '100%',
 	fontSize: '2rem',
+	fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
 	fontWeight: '100',
 	textAlign: 'center',
 	color: 'rgba(175, 47, 47, 0.15)',

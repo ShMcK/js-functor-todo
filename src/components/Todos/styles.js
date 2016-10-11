@@ -14,7 +14,7 @@ const styles = {
 	  textAlign: 'center',
   },
   body: {
-    background: '#f5f5f5',
+    // background: '#f5f5f5',
     minWidth: '230px',
     maxWidth: '550px',
     margin: '0 auto',
@@ -28,6 +28,9 @@ const styles = {
     position: 'relative',
     zIndex: 2,
     borderTop: '1px solid #e6e6e6',
+  },
+  hide: {
+    display: 'none',
   },
 }
 export default styles

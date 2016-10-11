@@ -4,6 +4,7 @@ import R from 'ramda'
 export const TODO_ADD = 'TODO_ADD'
 export const TODO_EDIT = 'TODO_EDIT'
 export const TODO_TOGGLE_PROP = 'TODO_TOGGLE_PROP'
+export const TODO_REMOVE = 'TODO_REMOVE'
 
 const nextId = R.compose(R.add(1), R.prop('id'), R.last)
 
@@ -33,6 +34,12 @@ export default Reducer((state, action) => {
       return R.merge(state, { todos: state.todos.map(
           toggleKeyById(key, id, x => R.assoc(key, !x[key], x))
         )
+      })
+
+    case TODO_REMOVE:
+      return R.merge(state, {
+        todos: state.todos
+          .filter(t => t.id !== action.payload.id)
       })
 
     default:

@@ -15,7 +15,7 @@ export default Reducer((state, action) => {
 
     case TODO_ADD:
       const nextTodo = {
-        id: nextId(state.todos),
+        id: state.todos.length ? nextId(state.todos) : 0,
         title: action.payload.title,
         isComplete: false,
         isEditing: false

@@ -55,8 +55,19 @@ const styles = {
   }
 }
 
-const Todo = ({ todo, toggleComplete, toggleEdit }) => (
+let editInputs = {}
+
+const handleSubmit = (id, onSubmit, toggleEdit, e) => {
+  e.preventDefault()
+  if (!editInputs[id].value.trim()) return
+  onSubmit(editInputs[id].value)
+  toggleEdit()
+}
+
+const Todo = ({ todo, toggleComplete, toggleEdit, onEditSubmit }) => (
   <li style={styles.li}>
+
+    {/* Label View */}
     <div
       style={Object.assign({}, styles.view, todo.isEditing ? { display: 'none' } : {} )}
       onDoubleClick={toggleEdit}
@@ -74,9 +85,18 @@ const Todo = ({ todo, toggleComplete, toggleEdit }) => (
       </label>
       <button style={styles.button}></button>
     </div>
-    <input
-      style={Object.assign({}, styles.edit, todo.isEditing ? {} : { display: 'none' })}
-    />
+
+    {/* Edit View */}
+    <form
+      onSubmit={handleSubmit.bind(null, todo.id, onEditSubmit, toggleEdit)}
+      onDoubleClick={toggleEdit}
+    >
+      <input
+        ref={node => { editInputs[todo.id] = node }}
+        style={Object.assign({}, styles.edit, todo.isEditing ? {} : { display: 'none' })}
+      />
+    </form>
+
   </li>
 )
 

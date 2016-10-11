@@ -24,9 +24,8 @@ const handleSubmit = (onSubmit, e) => {
   input.value = ''
 }
 
-
- const TodoInput = ({onSubmit}) => (
-  <form onSubmit={handleSubmit.bind(this, onSubmit)}>
+ const TodoInput = ({ onSubmit }) => (
+  <form onSubmit={handleSubmit.bind(null, onSubmit)}>
     <input
       ref={node => { input = node }}
       style={styles.newTodo}

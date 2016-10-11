@@ -73,7 +73,7 @@ const handleSubmit = (id, onSubmit, toggleEdit, e) => {
   toggleEdit()
 }
 
-const Todo = ({ todo, toggleComplete, toggleEdit, onEditSubmit, todoRemove }) => (
+const Todo = ({ todo, actions }) => (
   <li style={styles.li}>
 
     {/* Label View */}
@@ -82,13 +82,13 @@ const Todo = ({ todo, toggleComplete, toggleEdit, onEditSubmit, todoRemove }) =>
         styles.view,
         todo.isEditing && styles.hide
       ]}
-      onDoubleClick={toggleEdit}
+      onDoubleClick={actions.toggleEdit}
     >
       <input
         style={styles.toggle}
         type='checkbox'
         checked={todo.isComplete}
-        onChange={toggleComplete}
+        onChange={actions.toggleComplete}
       >
       </input>
       <label
@@ -102,14 +102,14 @@ const Todo = ({ todo, toggleComplete, toggleEdit, onEditSubmit, todoRemove }) =>
       </label>
       <span
         style={styles.destroy}
-        onClick={todoRemove}
+        onClick={actions.todoRemove}
       >×</span>
     </div>
 
     {/* Edit View */}
     <form
-      onSubmit={handleSubmit.bind(null, todo.id, onEditSubmit, toggleEdit)}
-      onDoubleClick={toggleEdit}
+      onSubmit={handleSubmit.bind(null, todo.id, actions.onEditSubmit, actions.toggleEdit)}
+      onDoubleClick={actions.toggleEdit}
     >
       <input
         ref={node => { editInputs[todo.id] = node }}

@@ -21,34 +21,36 @@ const filterTodos = filter => todo => {
 const Todos = connect.fold(({ state, dispatch }) => {
   const todos = state.todos.filter(filterTodos(state.filter))
   return (
-  <div style={styles.body}>
-    <section style={styles.main}>
-      <input className='toggle-all' style={styles.toggleAll} type='checkbox' />
-      <label htmlFor='toggle-all' style={styles.hide}>Mark all as complete</label>
+    <div style={styles.body}>
+      <section style={styles.main}>
+        <input className='toggle-all' style={styles.toggleAll} type='checkbox' />
+        <label htmlFor='toggle-all' style={styles.hide}>Mark all as complete</label>
 
-      <TodoInput
-        onSubmit={val => dispatch(todoAdd(val))}
-      />
+        <TodoInput
+          onSubmit={val => dispatch(todoAdd(val))}
+        />
 
-      <ul style={styles.list}>
-        { todos
-          .map((todo) =>
-          <Todo
-            key={todo.id}
-            todo={todo}
-            toggleComplete={() => dispatch(todoToggleProp('isComplete', todo.id))}
-            toggleEdit={() => dispatch(todoToggleProp('isEditing', todo.id))}
-            onEditSubmit={v => dispatch(todoEdit(todo.id, v))}
-            todoRemove={() => dispatch(todoRemove(todo.id))}
-          />
-        )}
-      </ul>
-      <TodoFilter
-        filterSet={f => dispatch(filterSet(f))}
-        todoCount={todos.length}
-      />
-    </section>
-  </div>
+        <ul style={styles.list}>
+          { todos
+              .map((todo) =>
+                <Todo
+                  key={todo.id}
+                  todo={todo}
+                  actions = {{
+                    toggleComplete: () => dispatch(todoToggleProp('isComplete', todo.id)),
+                    toggleEdit: () => dispatch(todoToggleProp('isEditing', todo.id)),
+                    onEditSubmit: (v) => dispatch(todoEdit(todo.id, v)),
+                    todoRemove: () => dispatch(todoRemove(todo.id)),
+                  }}
+                />
+          )}
+        </ul>
+        <TodoFilter
+          filterSet={f => dispatch(filterSet(f))}
+          todoCount={todos.length}
+        />
+      </section>
+    </div>
   )
 })
 

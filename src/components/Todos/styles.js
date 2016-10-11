@@ -14,7 +14,6 @@ const styles = {
 	  textAlign: 'center',
   },
   body: {
-    // background: '#f5f5f5',
     minWidth: '230px',
     maxWidth: '550px',
     margin: '0 auto',

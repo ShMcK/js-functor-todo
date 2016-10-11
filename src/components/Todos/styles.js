@@ -5,7 +5,7 @@ const styles = {
     padding: '0',
     listStyle: 'none',
   },
-    toggleAll: {
+  toggleAll: {
     position: 'absolute',
 	  top: '-55px',
 	  left: '-12px',

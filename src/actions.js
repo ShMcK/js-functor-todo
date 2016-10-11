@@ -1,4 +1,7 @@
-import { TODO_ADD, TODO_TOGGLE_COMPLETE } from './reducers/todo'
+import {
+  TODO_ADD,
+  TODO_TOGGLE_PROP,
+} from './reducers/todo'
 import { FILTER_SET } from './reducers/filter'
 
 export const todoAdd = (title) => ({
@@ -6,9 +9,9 @@ export const todoAdd = (title) => ({
   payload: { title }
 })
 
-export const todoToggleComplete = (id) => ({
-  type: TODO_TOGGLE_COMPLETE,
-  payload: { id }
+export const todoToggleProp = (key, id) => ({
+  type: TODO_TOGGLE_PROP,
+  payload: { key, id },
 })
 
 export const filterSet = (filter) => ({

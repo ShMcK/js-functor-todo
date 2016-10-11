@@ -1,7 +1,7 @@
 import React from 'react'
 import { Component, classToFn } from '../../functors'
 import connect from '../../connect'
-import { todoAdd, todoToggleComplete, filterSet } from '../../actions'
+import { todoAdd, todoToggleProp, filterSet } from '../../actions'
 import Todo from './Todo'
 import TodoInput from './TodoInput'
 import styles from './styles'
@@ -18,7 +18,8 @@ const Todos = connect.fold(({ state, dispatch }) => (
         <Todo
           key={todo.id}
           todo={todo}
-          toggleComplete={() => dispatch(todoToggleComplete(todo.id))}
+          toggleComplete={() => dispatch(todoToggleProp('isComplete', todo.id))}
+          toggleEdit={() => dispatch(todoToggleProp('isEditing', todo.id))}
         />
       )}
     </ul>

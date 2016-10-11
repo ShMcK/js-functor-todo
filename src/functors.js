@@ -9,8 +9,8 @@ export const Component = g => ({
     Component(x => g(f(x))),
   concat: other =>
     Component(x => <div>{g(x)} {other.fold(x)}</div>),
-  wrap: content =>
-    Component(x => <div>{content.fold(g(x))}</div>)
+  wrap: C =>
+    Component(x => <C children={g(x)} />)
 })
 
 export const Hoc = g => ({

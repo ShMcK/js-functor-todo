@@ -1,8 +1,8 @@
 import React from 'react'
 import { Component } from '../../functors'
 
-const Wrapper = styles => Component(c => 
-  <div style={styles}>{c}</div>
+const Wrapper = Component(() => 
+  <div style={{backgroundColor: 'red', width: '100px'}} />
 )
 
 export default Wrapper

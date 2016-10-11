@@ -1,30 +1,31 @@
 import { Reducer } from '../functors'
+import R from 'ramda'
 
 export const TODO_ADD = 'TODO_ADD'
-export const TODO_TOGGLE_COMPLETE = 'TODO_TOGGLE_COMPLETE'
+export const TODO_TOGGLE_PROP = 'TODO_TOGGLE_PROP'
 
-let id = 2;
+const nextId = R.compose(R.add(1), R.prop('id'), R.last)
+
+const toggleKeyById = (key, id) => R.when(
+  R.propSatisfies(x => x === id, 'id'),
+  x => R.assoc(key, !x[key], x)
+)
 
 export default Reducer((state, action) => {
-  console.log(state)
   switch (action.type) {
 
     case TODO_ADD:
-      const { title } = action.payload;
-      const nextTodo = { id: ++id, title, isComplete: false  }
-      return Object.assign({}, state, {
-        todos: state.todos.concat(nextTodo)
-      })
+      const nextTodo = {
+        id: nextId(state.todos),
+        title: action.payload.title,
+        isComplete: false,
+        isEditing: false
+      }
+      return R.merge(state, { todos: state.todos.concat(nextTodo) })
 
-    case TODO_TOGGLE_COMPLETE:
-      return Object.assign({}, state, {
-        todos: state.todos.map(todo => {
-          if (todo.id === action.payload.id) {
-            todo.isComplete = !todo.isComplete
-          }
-          return todo
-        })
-      })
+    case TODO_TOGGLE_PROP:
+      const {key, id} = action.payload
+      return R.merge(state, { todos: state.todos.map(toggleKeyById(key, id)) })
 
     default:
       return state

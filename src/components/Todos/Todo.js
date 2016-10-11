@@ -1,5 +1,4 @@
 import React from 'react'
-import { Component, classToFn } from '../../functors'
 
 const styles = {
   li: {
@@ -40,20 +39,44 @@ const styles = {
     marginBottom: '11px',
     transition: 'color 0.2s ease-out',
   },
+  view: {
+
+  },
+  edit: {
+    position: 'relative',
+    margin: '0',
+    width: '100%',
+    fontSize: '24px',
+    lineHeight: '1.4em',
+    padding: '6px',
+    border: '1px solid #999',
+    boxShadow: 'inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2)',
+    boxSizing: 'border-box',
+  }
 }
 
-const Todo = ({ todo, toggleComplete }) => (
+const Todo = ({ todo, toggleComplete, toggleEdit }) => (
   <li style={styles.li}>
-    <div>
+    <div
+      style={Object.assign({}, styles.view, todo.isEditing ? { display: 'none' } : {} )}
+      onDoubleClick={toggleEdit}
+    >
       <input
         style={styles.toggle}
         type='checkbox'
         checked={todo.isComplete}
         onChange={toggleComplete}
       />
-      <label style={Object.assign({}, styles.label, todo.isComplete ? { textDecoration: 'line-through'} : {})}>{todo.title}</label>
+      <label
+        style={Object.assign({}, styles.label, todo.isComplete ? { textDecoration: 'line-through'} : {})}
+      >
+        {todo.title}
+      </label>
       <button style={styles.button}></button>
     </div>
+    <input
+      style={Object.assign({}, styles.edit, todo.isEditing ? {} : { display: 'none' })}
+    />
   </li>
 )
 

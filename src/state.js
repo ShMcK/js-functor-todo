@@ -14,7 +14,8 @@ const initialState = {
       title: 'third',
       isComplete: false,
     },
-  ]
+  ],
+  filter: 'all',
 }
 
 export default initialState

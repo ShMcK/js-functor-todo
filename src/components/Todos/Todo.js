@@ -77,7 +77,8 @@ const Todo = ({ todo, toggleComplete, toggleEdit, onEditSubmit }) => (
         type='checkbox'
         checked={todo.isComplete}
         onChange={toggleComplete}
-      />
+      >
+      </input>
       <label
         style={Object.assign({}, styles.label, todo.isComplete ? { textDecoration: 'line-through'} : {})}
       >

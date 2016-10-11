@@ -38,7 +38,7 @@ const capitalize = str => R.compose(R.toUpper, R.head)(str) + R.tail(str)
 const filters = ['all', 'completed', 'todo']
 
 const TodoFilter = ({ todoCount, filterSet }) => (
-  <footer style={styles.footer}>
+  <section style={styles.footer}>
     <span style={styles.todoCount}>
       <strong>{todoCount}</strong>
     </span>
@@ -55,7 +55,7 @@ const TodoFilter = ({ todoCount, filterSet }) => (
       </li>
       ))}
     </ul>
-  </footer>
+  </section>
 )
 
 export default TodoFilter

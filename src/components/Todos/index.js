@@ -18,7 +18,7 @@ const filterTodos = filter => todo => {
   }
 }
 
-const Todos = connect.fold(({ state, dispatch }) => {
+export default Component(classToFn(connect.fold(({ state, dispatch }) => {
   const todos = state.todos.filter(filterTodos(state.filter))
   return (
     <div style={styles.body}>
@@ -36,7 +36,7 @@ const Todos = connect.fold(({ state, dispatch }) => {
                 <Todo
                   key={todo.id}
                   todo={todo}
-                  actions = {{
+                  actions={{
                     toggleComplete: () => dispatch(todoToggleProp('isComplete', todo.id)),
                     toggleEdit: () => dispatch(todoToggleProp('isEditing', todo.id)),
                     onEditSubmit: (v) => dispatch(todoEdit(todo.id, v)),
@@ -52,6 +52,4 @@ const Todos = connect.fold(({ state, dispatch }) => {
       </section>
     </div>
   )
-})
-
-export default Component(classToFn(Todos))
+})))

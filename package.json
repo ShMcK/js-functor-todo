@@ -6,6 +6,7 @@
     "react-scripts": "0.6.1"
   },
   "dependencies": {
+    "radium": "0.18.1",
     "ramda": "^0.22.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
